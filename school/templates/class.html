@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+h1 {text-align: center;}
+{% comment %} .btn {
+
+  color: blue;
+  padding: 45px 20px;
+
+    display: flex;
+  justify-content: center;
+  align-items: center;
+} {% endcomment %}
+.btn-group button {
+  background-color: #4CAF50;
+  border: 1px solid green;
+  color: black; 
+  padding: 10px 24px; 
+  cursor: pointer;
+  float: right;
+
+
+   margin-right: 100px;
+  margin-top: -70px;
+}
+</style>
+</head>
+<h1>Update the below details</h1>
+
+<body>
+<table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+
+ <tr>
+    <th>Day</th>
+    <th>Present_strength</th>
+    <th>Subject</th>
+    <th>teacher Name</th>
+    <th>Action</th>
+  </tr>
+
+  {% for classes in classes %}
+  <tr>  
+    <td>{{ classes.day }}</td>
+    <td>{{ classes.present_strngth }}</td>
+    <td>{{ classes.sub }}</td>
+    <td>{{ classes.teacher_name }}</td>
+    <td>
+    <a href = "/delete/{{ classes.id }}"><span>Delete</span> </td>
+  </tr>
+{% endfor %}
+
+</table>
+<div class="btn-group">
+
+ <button ><a href= '/add'>Add</button>
+</div>
+{% comment %} <div class= "btn">
+<button type="submit"  >Submit</button>
+</div> {% endcomment %}
+
+
+
+{% endblock content %}

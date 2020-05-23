@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<title>summary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+h1 {text-align: center;}
+</style>
+
+
+<div class="w3-container">
+  <h1>Day summary for all teachers</h1>
+
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-light-grey w3-hover-red">
+        <th>Day</th>
+        <th>Teacher_name</th>
+        <th>Class_count</th>
+        
+      </tr>
+    </thead>
+  {% for school in school %}
+    <tr class="w3-hover-green">
+      
+      <td>{{ school.day }}</td>
+      <td>{{ school.teacher_name }}</td>
+      <td>{{ school.classes }}</td>
+    </tr>
+   {% endfor %}
+  </table>
+
+
+
+{% endblock content %}
+
+ 
